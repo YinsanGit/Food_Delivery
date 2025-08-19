@@ -27,6 +27,7 @@ public class User extends BaseEntity{
     private String gender;
     private Date dateOfBirth;
     private String email;
+    @Column(name = "phone_number" , unique = true, nullable = false)
     private String phoneNumber;
     private String address;
     @Column(name = "user_type")
