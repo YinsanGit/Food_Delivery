@@ -1,14 +1,15 @@
 package org.example.ytlearning.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Column;
-import lombok.Builder;
-import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 import java.util.Date;
 
-@Data
-@Builder
+
+@Getter
+@Setter
+@ToString
 
 public class UserRequest {
     private Long id;
@@ -30,23 +31,7 @@ public class UserRequest {
     @JsonProperty("device_info")
     private DeviceRequest deviceRequest;
 
-    public static class DeviceRequest{
-        @JsonProperty("device_id")
-        private String deviceId;
-        @JsonProperty("device_type")
-        private String deviceType;
-        @JsonProperty("device_model")
-        private String deviceModel;
-        @JsonProperty("os_version")
-        private String osVersion;
-        @JsonProperty("app_version")
-        private String appVersion;
-        @JsonProperty("last_login")
-        private Date lastLogin;
-        @JsonProperty("trust_device")
-        private boolean trustDevice;
-        private String status;
-    }
+
 }
 
 

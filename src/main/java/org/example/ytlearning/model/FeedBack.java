@@ -1,23 +1,31 @@
 package org.example.ytlearning.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+import java.util.Date;
+
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Entity
 @Table(name = "tbl_feedback")
-public class FeedBack extends BaseEntity{
+public class FeedBack extends  BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 200)
+
+    @Column(name = "comment", length = 200)
     private String comment;
     private double rating;
-    private Long feedBackDate;
+    private Date feedbackDate;
     private Long userId;
     private Long restaurantId;
     private Long orderId;
-    private Long diliveryId;
-
+    private Long deliveryId;
 }

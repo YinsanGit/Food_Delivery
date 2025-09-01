@@ -2,7 +2,13 @@ package org.example.ytlearning.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.*;
+
 import java.util.Date;
+@Builder
+@Data
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 
 public class UserResponse {
     private Long id;
@@ -19,7 +25,8 @@ public class UserResponse {
     private String phoneNumber;
     private String address;
     @JsonProperty("user_type")
-    private String UserType;
+    private String userType;
+    private String status;
     @JsonProperty("created_at")
     private String createdAt;
     @JsonProperty("updated_at")
@@ -28,4 +35,5 @@ public class UserResponse {
     private String createdBy;
     @JsonProperty("updated_by")
     private String updatedBy;
+
 }

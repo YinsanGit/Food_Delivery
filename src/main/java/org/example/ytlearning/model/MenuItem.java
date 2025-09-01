@@ -2,13 +2,17 @@ package org.example.ytlearning.model;
 
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
-@Builder
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 @Table(name = "tbl_menu_item")
 public class MenuItem extends BaseEntity{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,13 +20,11 @@ public class MenuItem extends BaseEntity{
     private String code;
     private String name;
     private String description;
-    private Double price;
+    private double price;
     private Integer availability;
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Restaurant restaurant;
 
-
-
-
+//    @OneToMany(fetch = FetchType.LAZY)
+//    private MenuItemPhoto menuItemPhoto;
 }

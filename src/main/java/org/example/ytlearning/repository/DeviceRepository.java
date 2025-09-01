@@ -6,4 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DeviceRepository extends JpaRepository<Device,Long> {
+    boolean existsByDeviceId(String deviceId);
+
+    // or if you want to check uniqueness per user:
+    boolean existsByDeviceIdAndUserId(String deviceId, Long userId);
 }
